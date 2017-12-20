@@ -1,0 +1,170 @@
+﻿@model TP2D71.Models.DataModels.Pokemon
+
+@{
+    ViewBag.Title = "Modifier Pokémon";
+    var pokedex = new Pokedex();
+    var listePoketypes = new SelectList(pokedex.PokeTypes.List(), "PokeTypeID", "Name");
+    var listeHabitats = new SelectList(pokedex.Habitats.List(), "HabitatID", "Name");
+    var listeSpecies = new SelectList(pokedex.Species.List(), "SpeciesID", "Name");
+    var listeEvolution = new SelectList(pokedex.Pokemons.ListEvolutionsPossibles(), "PokemonID", "Name");
+}
+
+<!--Modifier le BeginForm pour permettre l'envoi de fichier-->
+@using (Html.BeginForm("Edit", "Pokemon", FormMethod.Post,  new { enctype="multipart/form-data"})) {
+@Html.AntiForgeryToken()
+    <div class="form-horizontal">
+
+        @Html.ValidationSummary(true, String.Empty, new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.PokemonID)
+
+        <h1 class="page-header">Modifier @Model.Name</h1>
+        <h4>Nom, Couleur et Évolution</h4>
+        <div class="well" style="padding-bottom:5px;">
+            <div class="form-group">
+                <div class="col-md-4">
+                    @Html.InputGroupFor(model => model.Name)
+                    @Html.ValidationMessageFor(model => model.Name, String.Empty, new { @class = "text-danger" })
+                </div>
+                <div class="col-md-4">
+                    <div class="row">
+                        @Html.LabelFor(model => model.Color, new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.EnumDropDownListFor(model => model.Color, htmlAttributes: new { @class = "form-control " })
+                            @Html.ValidationMessageFor(model => model.Color, String.Empty, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="row">
+                        @Html.LabelFor(model => model.EvolvesInto, new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            <!--Évolution-->
+                            <!--TODO: dropdownlist Évolution-->
+                            @Html.DropDownList("EvolvesInto", listeEvolution, String.Empty, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.EvolvesInto, String.Empty, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h4>PokeStats</h4>
+        <div class="well" style="padding-bottom:5px;">
+
+            <div class="form-group">
+                <div class="col-md-3">
+                    @Html.InputGroupFor(model => model.HP)
+                    @Html.ValidationMessageFor(model => model.HP, String.Empty, new { @class = "text-danger" })
+                </div>
+                <div class="col-md-3">
+                    @Html.InputGroupFor(model => model.Attack)
+                    @Html.ValidationMessageFor(model => model.Attack, String.Empty, new { @class = "text-danger" })
+                </div>
+                <div class="col-md-3">
+                    @Html.InputGroupFor(model => model.Defense)
+                    @Html.ValidationMessageFor(model => model.Defense, String.Empty, new { @class = "text-danger" })
+                </div>
+                <div class="col-md-3">
+                    @Html.InputGroupFor(model => model.Speed)
+                    @Html.ValidationMessageFor(model => model.Speed, String.Empty, new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-3">
+                    @Html.InputGroupFor(model => model.SpecialAttack)
+                    @Html.ValidationMessageFor(model => model.SpecialAttack, String.Empty, new { @class = "text-danger" })
+                </div>
+                <div class="col-md-3">
+                    @Html.InputGroupFor(model => model.SpecialDefense)
+                    @Html.ValidationMessageFor(model => model.SpecialDefense, String.Empty, new { @class = "text-danger" })
+                </div>
+                <div class="col-md-3">
+                    @Html.InputGroupFor(model => model.Height)
+                    @Html.ValidationMessageFor(model => model.Height, String.Empty, new { @class = "text-danger" })
+                </div>
+                <div class="col-md-3">
+                    @Html.InputGroupFor(model => model.Weight)
+                    @Html.ValidationMessageFor(model => model.Weight, String.Empty, new { @class = "text-danger" })
+                </div>
+            </div>
+
+        </div>
+
+        <h4>PokeTypes</h4>
+        <div class="well" style="padding-bottom:5px;">
+            <div class="form-group">
+                @Html.LabelFor(model => model.FKPoketypeID01, new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    <!--Poketype01 (pas de choix vide dans le dropdownlist)-->
+                    @Html.DropDownList("FKPoketypeID01", listePoketypes, htmlAttributes: new { @class = "form-control" })
+                    <!--TODO: dropdownlist FKPoketypeID01-->
+                    @Html.ValidationMessageFor(model => model.FKPoketypeID01, String.Empty, new { @class = "text-danger" })
+                </div>
+
+                @Html.LabelFor(model => model.FKPoketypeID02, new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    <!--Poketype02 (choix vide dans le dropdownlist)-->
+                    <!--TODO: dropdownlist FKPoketypeID02 -->
+                    @Html.DropDownList("FKPoketypeID02", listePoketypes, String.Empty, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.FKPoketypeID02, String.Empty, new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <h4>Habitat et Espèces</h4>
+        <div class="well" style="padding-bottom:5px;">
+            <div class="form-group">
+                @Html.LabelFor(model => model.FKHabitatID, new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    <!--Habitat-->
+                    <!--TODO: dropdownlist FKHabitatID-->
+                    @Html.DropDownList("FKHabitatID", listeHabitats, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.FKHabitatID, String.Empty, new { @class = "text-danger" })
+                </div>
+
+                @Html.LabelFor(model => model.FKSpeciesID, new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    <!--Species-->
+                    <!--TODO: dropdownlist FKSpeciesID-->
+                    @Html.DropDownList("FKSpeciesID", listeSpecies, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.FKSpeciesID, String.Empty, new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <h4>Habitat et Espèces</h4>
+        <div class="well" style="padding-bottom:5px;">
+            <div class="form-group">
+                @Html.LabelFor(model => model.ImgURL, new { @class = "control-label col-md-1" })
+                <div class="col-md-3">
+                    <!--TODO: Upload ImgURL -->
+                    <input type="file" name="NewImgURL" id="NewImgURL" accept=".png" />
+                    @Html.ValidationMessageFor(model => model.ImgURL, String.Empty, new { @class = "text-danger" })
+                </div>
+
+                @Html.LabelFor(model => model.CryURL, new { @class = "control-label col-md-1" })
+                <div class="col-md-3">
+                    <!--TODO: Upload CryURL -->
+                    <input type="file" name="NewCryURL" id="NewCryURL" accept=".ogg"  />
+                    @Html.ValidationMessageFor(model => model.CryURL, String.Empty, new { @class = "text-danger" })
+                </div>
+
+                @Html.LabelFor(model => model.ThumbURL, new { @class = "control-label col-md-1" })
+                <div class="col-md-3">
+                    <!--TODO: Upload ThumbURL-->
+                    <input type="file" name="NewThumbURL" id="NewThumbURL" accept=".png" />
+                    @Html.ValidationMessageFor(model => model.ThumbURL, String.Empty, new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-4 col-md-8">
+                <button type="submit" class="btn btn-primary btn-default btn-lg">
+                    <span class="glyphicon glyphicon-align-left glyphicon-floppy-save" aria-hidden="true"></span>
+                    Save
+                </button>
+                <a class="btn btn-default btn-lg" href="/Pokemon/Index">
+                    Annuler
+                </a>
+            </div>
+        </div>
+    </div>
+}
+

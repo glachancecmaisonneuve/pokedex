@@ -1,0 +1,566 @@
+﻿<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{61450E9D-75B6-40F2-B51D-A15272982A98}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TP2D71</RootNamespace>
+    <AssemblyName>TP2D71</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Validate, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Validate.1.0.3\lib\net452\Validate.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\Create dbo.PokeType.sql" />
+    <Content Include="App_Data\dbo.Habitat.data.sql" />
+    <Content Include="App_Data\dbo.Pokemon.data.sql" />
+    <Content Include="App_Data\dbo.PokeType.data.sql" />
+    <Content Include="App_Data\dbo.Species.data.sql" />
+    <Content Include="App_Data\FULL_POKEDEX.sql" />
+    <Content Include="App_Data\Pokedex.mdf" />
+    <Content Include="App_Data\Pokedex_log.ldf">
+      <DependentUpon>Pokedex.mdf</DependentUpon>
+    </Content>
+    <Content Include="App_Data\SupprimerInutilisés.sql" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\img\10.png" />
+    <Content Include="Content\img\100.png" />
+    <Content Include="Content\img\20.png" />
+    <Content Include="Content\img\30.png" />
+    <Content Include="Content\img\40.png" />
+    <Content Include="Content\img\50.png" />
+    <Content Include="Content\img\60.png" />
+    <Content Include="Content\img\70.png" />
+    <Content Include="Content\img\80.png" />
+    <Content Include="Content\img\90.png" />
+    <Content Include="Content\sprites\10.png" />
+    <Content Include="Content\sprites\100.png" />
+    <Content Include="Content\sprites\20.png" />
+    <Content Include="Content\sprites\30.png" />
+    <Content Include="Content\sprites\40.png" />
+    <Content Include="Content\sprites\50.png" />
+    <Content Include="Content\sprites\60.png" />
+    <Content Include="Content\sprites\70.png" />
+    <Content Include="Content\sprites\80.png" />
+    <Content Include="Content\sprites\90.png" />
+    <Content Include="favicon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\img\1.png" />
+    <Content Include="Content\img\11.png" />
+    <Content Include="Content\img\12.png" />
+    <Content Include="Content\img\13.png" />
+    <Content Include="Content\img\14.png" />
+    <Content Include="Content\img\15.png" />
+    <Content Include="Content\img\16.png" />
+    <Content Include="Content\img\17.png" />
+    <Content Include="Content\img\18.png" />
+    <Content Include="Content\img\19.png" />
+    <Content Include="Content\img\2.png" />
+    <Content Include="Content\img\21.png" />
+    <Content Include="Content\img\22.png" />
+    <Content Include="Content\img\23.png" />
+    <Content Include="Content\img\24.png" />
+    <Content Include="Content\img\25.png" />
+    <Content Include="Content\img\26.png" />
+    <Content Include="Content\img\27.png" />
+    <Content Include="Content\img\28.png" />
+    <Content Include="Content\img\29.png" />
+    <Content Include="Content\img\3.png" />
+    <Content Include="Content\img\31.png" />
+    <Content Include="Content\img\32.png" />
+    <Content Include="Content\img\33.png" />
+    <Content Include="Content\img\34.png" />
+    <Content Include="Content\img\35.png" />
+    <Content Include="Content\img\36.png" />
+    <Content Include="Content\img\37.png" />
+    <Content Include="Content\img\38.png" />
+    <Content Include="Content\img\39.png" />
+    <Content Include="Content\img\4.png" />
+    <Content Include="Content\img\41.png" />
+    <Content Include="Content\img\42.png" />
+    <Content Include="Content\img\43.png" />
+    <Content Include="Content\img\44.png" />
+    <Content Include="Content\img\45.png" />
+    <Content Include="Content\img\46.png" />
+    <Content Include="Content\img\47.png" />
+    <Content Include="Content\img\48.png" />
+    <Content Include="Content\img\49.png" />
+    <Content Include="Content\img\5.png" />
+    <Content Include="Content\img\51.png" />
+    <Content Include="Content\img\52.png" />
+    <Content Include="Content\img\53.png" />
+    <Content Include="Content\img\54.png" />
+    <Content Include="Content\img\55.png" />
+    <Content Include="Content\img\56.png" />
+    <Content Include="Content\img\57.png" />
+    <Content Include="Content\img\58.png" />
+    <Content Include="Content\img\59.png" />
+    <Content Include="Content\img\6.png" />
+    <Content Include="Content\img\61.png" />
+    <Content Include="Content\img\62.png" />
+    <Content Include="Content\img\63.png" />
+    <Content Include="Content\img\64.png" />
+    <Content Include="Content\img\65.png" />
+    <Content Include="Content\img\66.png" />
+    <Content Include="Content\img\67.png" />
+    <Content Include="Content\img\68.png" />
+    <Content Include="Content\img\69.png" />
+    <Content Include="Content\img\7.png" />
+    <Content Include="Content\img\71.png" />
+    <Content Include="Content\img\72.png" />
+    <Content Include="Content\img\73.png" />
+    <Content Include="Content\img\74.png" />
+    <Content Include="Content\img\75.png" />
+    <Content Include="Content\img\76.png" />
+    <Content Include="Content\img\77.png" />
+    <Content Include="Content\img\78.png" />
+    <Content Include="Content\img\79.png" />
+    <Content Include="Content\img\8.png" />
+    <Content Include="Content\img\81.png" />
+    <Content Include="Content\img\82.png" />
+    <Content Include="Content\img\83.png" />
+    <Content Include="Content\img\84.png" />
+    <Content Include="Content\img\85.png" />
+    <Content Include="Content\img\86.png" />
+    <Content Include="Content\img\87.png" />
+    <Content Include="Content\img\88.png" />
+    <Content Include="Content\img\89.png" />
+    <Content Include="Content\img\9.png" />
+    <Content Include="Content\img\91.png" />
+    <Content Include="Content\img\92.png" />
+    <Content Include="Content\img\93.png" />
+    <Content Include="Content\img\94.png" />
+    <Content Include="Content\img\95.png" />
+    <Content Include="Content\img\96.png" />
+    <Content Include="Content\img\97.png" />
+    <Content Include="Content\img\98.png" />
+    <Content Include="Content\img\99.png" />
+    <Content Include="Content\pokedexList.css" />
+    <Content Include="Content\poketype.css" />
+    <Content Include="Content\ripOff.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\sprites\1.png" />
+    <Content Include="Content\sprites\11.png" />
+    <Content Include="Content\sprites\12.png" />
+    <Content Include="Content\sprites\13.png" />
+    <Content Include="Content\sprites\14.png" />
+    <Content Include="Content\sprites\15.png" />
+    <Content Include="Content\sprites\16.png" />
+    <Content Include="Content\sprites\17.png" />
+    <Content Include="Content\sprites\18.png" />
+    <Content Include="Content\sprites\19.png" />
+    <Content Include="Content\sprites\2.png" />
+    <Content Include="Content\sprites\21.png" />
+    <Content Include="Content\sprites\22.png" />
+    <Content Include="Content\sprites\23.png" />
+    <Content Include="Content\sprites\24.png" />
+    <Content Include="Content\sprites\25.png" />
+    <Content Include="Content\sprites\26.png" />
+    <Content Include="Content\sprites\27.png" />
+    <Content Include="Content\sprites\28.png" />
+    <Content Include="Content\sprites\29.png" />
+    <Content Include="Content\sprites\3.png" />
+    <Content Include="Content\sprites\31.png" />
+    <Content Include="Content\sprites\32.png" />
+    <Content Include="Content\sprites\33.png" />
+    <Content Include="Content\sprites\34.png" />
+    <Content Include="Content\sprites\35.png" />
+    <Content Include="Content\sprites\36.png" />
+    <Content Include="Content\sprites\37.png" />
+    <Content Include="Content\sprites\38.png" />
+    <Content Include="Content\sprites\39.png" />
+    <Content Include="Content\sprites\4.png" />
+    <Content Include="Content\sprites\41.png" />
+    <Content Include="Content\sprites\42.png" />
+    <Content Include="Content\sprites\43.png" />
+    <Content Include="Content\sprites\44.png" />
+    <Content Include="Content\sprites\45.png" />
+    <Content Include="Content\sprites\46.png" />
+    <Content Include="Content\sprites\47.png" />
+    <Content Include="Content\sprites\48.png" />
+    <Content Include="Content\sprites\49.png" />
+    <Content Include="Content\sprites\5.png" />
+    <Content Include="Content\sprites\51.png" />
+    <Content Include="Content\sprites\52.png" />
+    <Content Include="Content\sprites\53.png" />
+    <Content Include="Content\sprites\54.png" />
+    <Content Include="Content\sprites\55.png" />
+    <Content Include="Content\sprites\56.png" />
+    <Content Include="Content\sprites\57.png" />
+    <Content Include="Content\sprites\58.png" />
+    <Content Include="Content\sprites\59.png" />
+    <Content Include="Content\sprites\6.png" />
+    <Content Include="Content\sprites\61.png" />
+    <Content Include="Content\sprites\62.png" />
+    <Content Include="Content\sprites\63.png" />
+    <Content Include="Content\sprites\64.png" />
+    <Content Include="Content\sprites\65.png" />
+    <Content Include="Content\sprites\66.png" />
+    <Content Include="Content\sprites\67.png" />
+    <Content Include="Content\sprites\68.png" />
+    <Content Include="Content\sprites\69.png" />
+    <Content Include="Content\sprites\7.png" />
+    <Content Include="Content\sprites\71.png" />
+    <Content Include="Content\sprites\72.png" />
+    <Content Include="Content\sprites\73.png" />
+    <Content Include="Content\sprites\74.png" />
+    <Content Include="Content\sprites\75.png" />
+    <Content Include="Content\sprites\76.png" />
+    <Content Include="Content\sprites\77.png" />
+    <Content Include="Content\sprites\78.png" />
+    <Content Include="Content\sprites\79.png" />
+    <Content Include="Content\sprites\8.png" />
+    <Content Include="Content\sprites\81.png" />
+    <Content Include="Content\sprites\82.png" />
+    <Content Include="Content\sprites\83.png" />
+    <Content Include="Content\sprites\84.png" />
+    <Content Include="Content\sprites\85.png" />
+    <Content Include="Content\sprites\86.png" />
+    <Content Include="Content\sprites\87.png" />
+    <Content Include="Content\sprites\88.png" />
+    <Content Include="Content\sprites\89.png" />
+    <Content Include="Content\sprites\9.png" />
+    <Content Include="Content\sprites\91.png" />
+    <Content Include="Content\sprites\92.png" />
+    <Content Include="Content\sprites\93.png" />
+    <Content Include="Content\sprites\94.png" />
+    <Content Include="Content\sprites\95.png" />
+    <Content Include="Content\sprites\96.png" />
+    <Content Include="Content\sprites\97.png" />
+    <Content Include="Content\sprites\98.png" />
+    <Content Include="Content\sprites\99.png" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\cries\1.ogg" />
+    <Content Include="Content\cries\11.ogg" />
+    <Content Include="Content\cries\12.ogg" />
+    <Content Include="Content\cries\13.ogg" />
+    <Content Include="Content\cries\14.ogg" />
+    <Content Include="Content\cries\15.ogg" />
+    <Content Include="Content\cries\16.ogg" />
+    <Content Include="Content\cries\17.ogg" />
+    <Content Include="Content\cries\18.ogg" />
+    <Content Include="Content\cries\19.ogg" />
+    <Content Include="Content\cries\2.ogg" />
+    <Content Include="Content\cries\21.ogg" />
+    <Content Include="Content\cries\22.ogg" />
+    <Content Include="Content\cries\23.ogg" />
+    <Content Include="Content\cries\24.ogg" />
+    <Content Include="Content\cries\25.ogg" />
+    <Content Include="Content\cries\26.ogg" />
+    <Content Include="Content\cries\27.ogg" />
+    <Content Include="Content\cries\28.ogg" />
+    <Content Include="Content\cries\29.ogg" />
+    <Content Include="Content\cries\3.ogg" />
+    <Content Include="Content\cries\31.ogg" />
+    <Content Include="Content\cries\32.ogg" />
+    <Content Include="Content\cries\33.ogg" />
+    <Content Include="Content\cries\34.ogg" />
+    <Content Include="Content\cries\35.ogg" />
+    <Content Include="Content\cries\36.ogg" />
+    <Content Include="Content\cries\37.ogg" />
+    <Content Include="Content\cries\38.ogg" />
+    <Content Include="Content\cries\39.ogg" />
+    <Content Include="Content\cries\4.ogg" />
+    <Content Include="Content\cries\41.ogg" />
+    <Content Include="Content\cries\42.ogg" />
+    <Content Include="Content\cries\43.ogg" />
+    <Content Include="Content\cries\44.ogg" />
+    <Content Include="Content\cries\45.ogg" />
+    <Content Include="Content\cries\46.ogg" />
+    <Content Include="Content\cries\47.ogg" />
+    <Content Include="Content\cries\48.ogg" />
+    <Content Include="Content\cries\49.ogg" />
+    <Content Include="Content\cries\5.ogg" />
+    <Content Include="Content\cries\51.ogg" />
+    <Content Include="Content\cries\52.ogg" />
+    <Content Include="Content\cries\53.ogg" />
+    <Content Include="Content\cries\54.ogg" />
+    <Content Include="Content\cries\55.ogg" />
+    <Content Include="Content\cries\56.ogg" />
+    <Content Include="Content\cries\57.ogg" />
+    <Content Include="Content\cries\58.ogg" />
+    <Content Include="Content\cries\59.ogg" />
+    <Content Include="Content\cries\6.ogg" />
+    <Content Include="Content\cries\61.ogg" />
+    <Content Include="Content\cries\62.ogg" />
+    <Content Include="Content\cries\63.ogg" />
+    <Content Include="Content\cries\64.ogg" />
+    <Content Include="Content\cries\65.ogg" />
+    <Content Include="Content\cries\66.ogg" />
+    <Content Include="Content\cries\67.ogg" />
+    <Content Include="Content\cries\68.ogg" />
+    <Content Include="Content\cries\69.ogg" />
+    <Content Include="Content\cries\7.ogg" />
+    <Content Include="Content\cries\71.ogg" />
+    <Content Include="Content\cries\72.ogg" />
+    <Content Include="Content\cries\73.ogg" />
+    <Content Include="Content\cries\74.ogg" />
+    <Content Include="Content\cries\75.ogg" />
+    <Content Include="Content\cries\76.ogg" />
+    <Content Include="Content\cries\77.ogg" />
+    <Content Include="Content\cries\78.ogg" />
+    <Content Include="Content\cries\79.ogg" />
+    <Content Include="Content\cries\8.ogg" />
+    <Content Include="Content\cries\81.ogg" />
+    <Content Include="Content\cries\82.ogg" />
+    <Content Include="Content\cries\83.ogg" />
+    <Content Include="Content\cries\84.ogg" />
+    <Content Include="Content\cries\85.ogg" />
+    <Content Include="Content\cries\86.ogg" />
+    <Content Include="Content\cries\87.ogg" />
+    <Content Include="Content\cries\88.ogg" />
+    <Content Include="Content\cries\89.ogg" />
+    <Content Include="Content\cries\9.ogg" />
+    <Content Include="Content\cries\91.ogg" />
+    <Content Include="Content\cries\92.ogg" />
+    <Content Include="Content\cries\93.ogg" />
+    <Content Include="Content\cries\94.ogg" />
+    <Content Include="Content\cries\95.ogg" />
+    <Content Include="Content\cries\96.ogg" />
+    <Content Include="Content\cries\97.ogg" />
+    <Content Include="Content\cries\98.ogg" />
+    <Content Include="Content\cries\99.ogg" />
+    <Content Include="Content\cries\10.ogg" />
+    <Content Include="Content\cries\100.ogg" />
+    <Content Include="Content\cries\20.ogg" />
+    <Content Include="Content\cries\30.ogg" />
+    <Content Include="Content\cries\40.ogg" />
+    <Content Include="Content\cries\50.ogg" />
+    <Content Include="Content\cries\60.ogg" />
+    <Content Include="Content\cries\70.ogg" />
+    <Content Include="Content\cries\80.ogg" />
+    <Content Include="Content\cries\90.ogg" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Properties\PublishProfiles\D71TP2 - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\D71TP2 - Web Deploy.pubxml" />
+    <None Include="Scripts\jquery-2.1.1.intellisense.js" />
+    <Content Include="Scripts\jquery-2.1.1.js" />
+    <Content Include="Scripts\jquery-2.1.1.min.js" />
+    <Content Include="Scripts\jquery-2.1.1.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Content Include="Scripts\jquery.validate.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\jquery.validate.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\jquery.validate.unobtrusive.bootstrap.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.bootstrap.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\npm.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\jquery.validate.unobtrusive.bootstrap.min.js.map" />
+    <None Include="Scripts\_references.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HabitatController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PokemonController.cs" />
+    <Compile Include="Controllers\UtilisateurController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\BootstrapExtensions.cs" />
+    <Compile Include="Helpers\HtlmHelpers.cs" />
+    <Compile Include="Helpers\ImageExtensions.cs" />
+    <Compile Include="Helpers\MetadataExtensions.cs" />
+    <Compile Include="Helpers\TagBuilderExtensions.cs" />
+    <Compile Include="Models\DAL\FavoritesRepository.cs" />
+    <Compile Include="Models\DAL\HabitatRepository.cs" />
+    <Compile Include="Models\DAL\Pokedex.cs" />
+    <Compile Include="Models\DAL\PokedexExceptions.cs" />
+    <Compile Include="Models\DAL\PokemonRepository.cs" />
+    <Compile Include="Models\DAL\PokeTypeRepository.cs" />
+    <Compile Include="Models\DAL\Repository.cs" />
+    <Compile Include="Models\DAL\SpeciesRespository.cs" />
+    <Compile Include="Models\DAL\UtilisateurRepository.cs" />
+    <Compile Include="Models\DataModels\Habitat.cs" />
+    <Compile Include="Models\DataModels\Pokemon.cs" />
+    <Compile Include="Models\DataModels\PokeType.cs" />
+    <Compile Include="Models\DataModels\Species.cs" />
+    <Compile Include="Models\DataModels\Utilisateur.cs" />
+    <Compile Include="Models\ViewModels\InscriptionView.cs" />
+    <Compile Include="Models\ViewModels\LoginView.cs" />
+    <Compile Include="PasswordHash.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="Views\Pokemon\Edit.cshtml" />
+    <Content Include="Views\Pokemon\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\MenuLogin.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Utilisateur\Edit.cshtml" />
+    <Content Include="Views\Utilisateur\Inscription.cshtml" />
+    <Content Include="Views\Utilisateur\Login.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Habitat\Index.cshtml" />
+    <Content Include="Views\Pokemon\PokemonParHabitat.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <FilesToIncludeForPublish>AllFilesInTheProject</FilesToIncludeForPublish>
+    <PublishDatabaseSettings>
+      <Objects>
+      </Objects>
+    </PublishDatabaseSettings>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50567</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:50567/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <PropertyGroup>
+    <PreBuildEvent>cmd /c "pskill VBCSCompiler" &amp; set</PreBuildEvent>
+  </PropertyGroup>
+</Project>

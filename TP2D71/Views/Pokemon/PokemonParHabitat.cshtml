@@ -1,0 +1,39 @@
+﻿@model IEnumerable<TP2D71.Models.DataModels.Pokemon>
+@using TP2D71.Helpers;
+@{
+    var pokedex = new Pokedex();
+    var listePoketypes = new SelectList(pokedex.PokeTypes.List(), "PokeTypeID", "Name");
+    var listeHabitats = new SelectList(pokedex.Habitats.List(), "HabitatID", "Name");
+    var listeSpecies = new SelectList(pokedex.Species.List(), "SpeciesID", "Name");
+}
+
+@section header{
+    <link href="~/Content/poketype.css" rel="stylesheet" />
+}
+<style>img { max-width:50px; min-width:50px; }</style>
+
+<div class="row" style="padding-top: 60px;">
+    <div class="col-md-12">
+        <table class="table">
+            @foreach (var item in Model) {
+                <tr>
+                    <td><img src="@($"/Content/sprites/{ item.PokemonID}.png")" alt="@item.Name" /></td>
+                    <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                    <td>@Html.DisplayFor(modelItem => item.HP)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Attack)</td>
+                    <td>
+                        <div class="@item.PokeType01.Name">@item.PokeType01.Name</div>
+                        <div class="@(item.PokeType02?.Name)">@(item.PokeType02?.Name)</div>
+                    </td>
+                    <td>@Html.DisplayFor(modelItem => item.Habitat.Name)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Species.Name)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Evolution.Name)</td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.PokemonID }, htmlAttributes: new { @class = "btn btn-primary" })
+                        @Html.ActionLink("Details", "Details", new { id = item.PokemonID }, htmlAttributes: new { @class = "btn btn-primary disabled" })
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

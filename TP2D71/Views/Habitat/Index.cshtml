@@ -1,0 +1,9 @@
+﻿@model IEnumerable<TP2D71.Models.DataModels.Habitat>
+
+@foreach (Habitat h in Model)
+{
+    <h2>@h.Name</h2>
+    <div class="well-lg well">
+        @Html.Action("PokemonParHabitat","Pokemon", new { HabitatID=h.HabitatID })
+    </div>
+}

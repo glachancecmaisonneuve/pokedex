@@ -1,0 +1,14 @@
+﻿<li class="dropdown btn btn-default">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Connexion<span class="caret"></span></a>
+    <ul class="dropdown-menu" role="menu">
+        @if (!User.Identity.IsAuthenticated) {
+            <li>@Html.ActionLink("Login", "Login", "Utilisateur", routeValues: null, htmlAttributes: new { @class = "btn btn-default" })</li>
+            <li>@Html.ActionLink("Inscription", "Inscription", "Utilisateur", routeValues: null, htmlAttributes: new { @class = "btn-default" })</li>
+        } else {
+            <li>@Html.ActionLink("Compte", "Edit", "Utilisateur", routeValues: null, htmlAttributes: new { @class = "btn btn-default" })</li>
+            <li>@Html.ActionLink("Pokémons Favoris", "Favoris", "Utilisateurs", routeValues: null, htmlAttributes: new { @class = "btn-default disabled" })</li>
+            <li class="divider"> </li>
+            <li>@Html.ActionLink("Logout", "Logout", "Utilisateur", routeValues: null, htmlAttributes: new { @class = "btn btn-default" })</li>
+        }
+    </ul>
+</li>
