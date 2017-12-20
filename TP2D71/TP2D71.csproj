@@ -73,16 +73,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\Create dbo.PokeType.sql" />
-    <Content Include="App_Data\dbo.Habitat.data.sql" />
-    <Content Include="App_Data\dbo.Pokemon.data.sql" />
-    <Content Include="App_Data\dbo.PokeType.data.sql" />
-    <Content Include="App_Data\dbo.Species.data.sql" />
     <Content Include="App_Data\FULL_POKEDEX.sql" />
     <Content Include="App_Data\Pokedex.mdf" />
     <Content Include="App_Data\Pokedex_log.ldf">
       <DependentUpon>Pokedex.mdf</DependentUpon>
     </Content>
-    <Content Include="App_Data\SupprimerInutilisés.sql" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
